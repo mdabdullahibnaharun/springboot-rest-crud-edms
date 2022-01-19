@@ -10,7 +10,7 @@ public interface DepartmentService {
 
 	DepartmentRequest saveDepartment(DepartmentRequest request);
 	
-	DepartmentRequest updateDepartment(DepartmentRequest request);
+//	DepartmentRequest updateDepartment(DepartmentRequest request);
 	
 	Department updateDepartment(Department request);
 	

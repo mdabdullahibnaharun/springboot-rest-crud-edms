@@ -14,44 +14,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.abdullah.springrest.main.dto.DepartmentRequest;
+import com.abdullah.springrest.main.dto.EmployeeRequest;
 import com.abdullah.springrest.main.model.Department;
+import com.abdullah.springrest.main.model.Employee;
 import com.abdullah.springrest.main.service.DepartmentService;
+import com.abdullah.springrest.main.service.EmployeeService;
 
 import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
 @CrossOrigin
-@RequestMapping("dept")
-public class DepartmentController {
-	
+@RequestMapping("emp")
+public class EmployeeController {
+
+	@Autowired
+	private final EmployeeService employeeService;
+
 	@Autowired
 	private final DepartmentService departmentService;
-	
+
 	@PostMapping("/save")
-	public DepartmentRequest saveDepartment(@RequestBody DepartmentRequest request) {
-		return departmentService.saveDepartment(request);
+	public EmployeeRequest saveEmployee(@RequestBody EmployeeRequest request) {
+		return employeeService.saveEmployee(request);
 	}
 	
 	@GetMapping(path="/get")
-	public List<Department> getAllDepartment(){
-		return departmentService.getAllDepartment();
+	public List<Employee> getAllEmployees(){
+		return employeeService.getAllEmployees();
 	}
-	
-	@GetMapping(path="/get/{id}")
-	Optional<Department> getDepartment(@PathVariable(value = "id") Long id){
-		return departmentService.getDepartmentById(id);
+	@GetMapping("/get/{id}")
+	public Optional<Employee> getEmployee(@PathVariable(value = "id") Long id) {
+		return employeeService.findById(id);
 	}
 	
 	@PutMapping(path="/update", produces = "Application/JSON")
-	public Department updateDepartment(@RequestBody Department request) {
-		return departmentService.updateDepartment(request);
-	}
-	
-	@DeleteMapping(path="/delete/{id}")
-	public void deleteDepartment(@PathVariable(value = "id") Long id) {
-		departmentService.deleteDept(id);
+	public EmployeeRequest updateEmployee(@RequestBody EmployeeRequest employee) {
+		return employeeService.updateEmployee(employee);
 	}
 
+	@DeleteMapping(path="/delete/{id}")
+	public void deleteEmployee(@PathVariable(value = "id") Long id) {
+		employeeService.deleteEmp(id);
+	}
+	
 }

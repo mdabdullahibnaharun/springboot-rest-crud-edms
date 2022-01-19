@@ -59,11 +59,5 @@ public class DepartmentServiceImpl implements DepartmentService {
 		departmentRepository.delete(department);
 	}
 
-	@Override
-	public DepartmentRequest updateDepartment(DepartmentRequest request) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 }
