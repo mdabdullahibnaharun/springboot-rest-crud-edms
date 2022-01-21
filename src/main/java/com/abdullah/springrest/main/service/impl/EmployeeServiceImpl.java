@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.abdullah.springrest.main.dto.EmployeeRequest;
@@ -20,6 +21,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
+@Component
 public class EmployeeServiceImpl implements EmployeeService{
 
 	@Autowired

@@ -10,7 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
+
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import com.abdullah.springrest.main.enums.GenderEnum;
 
@@ -23,6 +26,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(EntityListeners.class)
+@Component
+@Scope(value = "prototype")
 public class Employee {
 
 	@Id
